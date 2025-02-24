@@ -1,0 +1,81 @@
+<!--
+
+                            Online HTML Compiler.
+                Code, Compile, Run and Debug HTML program online.
+Write your code in this editor and press "Run" button to execute it.
+
+-->
+<div class="container">
+    <h2>Electrical Gadgets Form</h2>
+    <form action="predict" method="post">
+        <div class="form-group">
+            <label for="gadget">Electrical Gadgets:</label>
+            <select id="gadget" name="gadget" required>
+                <option value="Smartphone">Smartphone</option>
+                <option value="Laptop">Laptop</option>
+                <option value="Smartwatch">Smartwatch</option>
+                <option value="Tablet">Tablet</option>
+                <option value="Headphones">Headphones</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="company">Company Name:</label>
+            <input type="text" id="company" name="company" required>
+            <select id="Company" name="company" required>
+                <option value="Solutions Group">Solutions Group</option>
+                <option value="Enterpri">Enterpri</option>
+                <option value="Innovations Inc">Innovations Inc</option>
+                <option value="Tech Groupses Group">Tech Groupses Group</option>
+                <option value="Enterprises Ltd">Enterprises Ltd</option>
+                <option value="Solutions Corp">Solutions Corp</option>
+                <option value="Tech Inc">Tech Inc</option>
+                <option value="Tech crop">Tech crop</option>
+                <option value="system crop">system crop</option>
+                <option value="Gadget Group">Gadget Group</option>
+                <option value="Tech Ltd">Tech Ltd</option>
+                <option value="Gadget Ltd">Gadget Ltd</option>
+            </select>
+
+        </div>
+        <div class="form-group">
+            <label for="warranty">Years of Warranty:</label>
+            <input type="number" id="warranty" name="warranty" required>
+        </div>
+        <div class="form-group">
+            <label for="manufacturing_year">Year of Manufacturing:</label>
+            <select id="manufacturing_year" name="manufacturing_year" required>
+                <!-- Options will be dynamically generated here -->
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="expiry_year">Years of Expiry:</label>
+            <input type="number" id="expiry_year" name="expiry_year" required>
+        </div>
+        
+        <input type="submit" value="Submit">
+
+        <h1>Prediction Result:</h1>
+    <p>The predicted value is: {{ prediction }}</p>
+    </form>
+</div>
+
+<script>
+    // Function to generate a range of years
+    function range(start, end) {
+        return Array(end - start + 1).fill().map((_, idx) => start + idx);
+    }
+
+    // Get the select element for manufacturing year
+    var manufacturingYearSelect = document.getElementById("manufacturing_year");
+    
+    // Generate options dynamically for manufacturing year dropdown
+    var currentYear = new Date().getFullYear();
+    var years = range(2018, 2024); // Range of years
+    years.reverse(); // Reverse the array to show recent years first
+    years.forEach(function(year) {
+        var option = document.createElement("option");
+        option.text = year;
+        option.value = year;
+        manufacturingYearSelect.add(option);
+    });
+</script>

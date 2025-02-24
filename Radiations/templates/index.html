@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Electrical Gadgets Form</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        width: 50%;
+        margin: 50px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .form-group {
+        margin-bottom: 20px;
+    }
+    label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+    input[type="text"], input[type="number"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+        font-size: 16px;
+    }
+    input[type="submit"] {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+    input[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Electrical Gadgets Form</h2>
+    <form action="predict" method="post">
+        <div class="form-group">
+            <label for="gadget">Electrical Gadgets:</label>
+            <input type="text" id="gadget" name="gadget" required>
+        </div>
+        <div class="form-group">
+            <label for="company">Company Name:</label>
+            <input type="text" id="company" name="company" required>
+        </div>
+        <div class="form-group">
+            <label for="warranty">Years of Warranty:</label>
+            <input type="number" id="warranty" name="warranty" required>
+        </div>
+        <div class="form-group">
+            <label for="manufacturing_year">Year of Manufacturing:</label>
+            <input type="number" id="manufacturing_year" name="manufacturing_year" required>
+        </div>
+        <div class="form-group">
+            <label for="expiry_year">Years of Expiry:</label>
+            <input type="number" id="expiry_year" name="expiry_year" required>
+        </div>
+        
+        <input type="submit" value="Submit">
+        <h1>Prediction Result:</h1>
+    <p>The predicted value is: {{ prediction }}</p>
+    </form>
+</div>
+
+</body>
+</html>
